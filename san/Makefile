@@ -36,7 +36,7 @@ $(OBJROOT)/san/kasan-blacklist-%: $(SOURCE)/kasan-blacklist $(SOURCE)/kasan-blac
 	$(_v)sed -e 's,^src:\./,src:'"$(SRCROOT)/," $^ > $@
 	$(_v)$(SOURCE)/tools/validate_blacklist.sh "$@"
 
-do_build_setup:: $(OBJROOT)/san/kasan-blacklist-x86_64 $(OBJROOT)/san/kasan-blacklist-arm64
+do_build_setup:: $(OBJROOT)/san/kasan-blacklist-$(CURRENT_ARCH_CONFIG_LC)
 
 #
 # Kasan System.kext plugin
